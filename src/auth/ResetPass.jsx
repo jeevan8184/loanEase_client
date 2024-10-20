@@ -63,7 +63,6 @@ const ResetPass = () => {
       });
 
       if(response) {
-        toast.success(response.data.message+" : "+newText);
         setInitVals({ form1: false, form2: true, form3: false });
       }
 

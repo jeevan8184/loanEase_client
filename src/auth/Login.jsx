@@ -53,7 +53,6 @@ const Login = () => {
 
     try {
       setIsLoading(true);
-      toast.success("toats"+process.env.REACT_APP_URL);
 
       const api = await axios.post(`${process.env.REACT_APP_URL}/auth/login`, {
         email: initVals.email,
