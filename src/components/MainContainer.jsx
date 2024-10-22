@@ -15,25 +15,6 @@ const MainContainer = () => {
 
   const token = localStorage.getItem("token");
 
-  const fetchUser=async()=>{
-    try {
-      const decoded = jwtDecode(token);
-      const response=await fetch(`${process.env.REACT_APP_URL}/auth/user/${decoded?.id}`,{
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
-        },
-        credentials: "include",
-      });
-      console.log(response);
-      
-    } catch (error) {
-      console.log("error",error);
-      console.log("message",error.message);
-    }
-  }
-
   useEffect(() => {
     const newFunc = async () => {
       if (token) {
@@ -53,8 +34,7 @@ const MainContainer = () => {
       }
     };
     if(token) {
-      fetchUser();
-      // newFunc();
+      newFunc();
     }
   }, [token]);
 
